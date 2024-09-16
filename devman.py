@@ -19,11 +19,6 @@ def get_weather(place, lang='ru'):
     
     return response.text
 
-# def main(place):
-    
-#     weather = get_weather(place)
-#     if weather:
-#         print(weather)
 
 cities = ['svo', 'cherepovets', 'london']
 
