@@ -8,7 +8,7 @@
 1. **Клонируйте репозиторий:**
 
    ```bash
-   git clone https://github.com/manilotw/pultohrany.git
+   git clone https://github.com/manilotw/apiweb1.git
    ```
 
 2. **Перейдите в директорию проекта:**

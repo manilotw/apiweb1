@@ -4,7 +4,6 @@ def get_weather(place, lang='ru'):
     url_template = f'https://wttr.in/{place}'
     params = {
         'lang': lang,
-        'm': '', 
         'n': '',  
         'q': '' ,  
         'T': '' ,
@@ -20,13 +19,14 @@ def get_weather(place, lang='ru'):
     
     return response.text
 
-def main(place):
+# def main(place):
     
-    weather = get_weather(place)
-    if weather:
-        print(weather)
+#     weather = get_weather(place)
+#     if weather:
+#         print(weather)
+
+cities = ['svo', 'cherepovets', 'london']
 
 if __name__ == '__main__':
-    main('svo')
-    main('cherepovets')
-    main('london')
+    for city in cities:
+        print(get_weather(city))
