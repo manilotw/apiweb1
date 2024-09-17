@@ -10,18 +10,17 @@ def get_weather(place, lang='ru'):
         'M': ''
     }
     
-    try:
-        response = requests.get(url_template, params=params)
-        response.raise_for_status()
-    except requests.exceptions.HTTPError as err:
-        print(f"Ошибка при запросе погоды для {place}: {err}")
-        return None
-    
+    response = requests.get(url_template, params=params)
+    response.raise_for_status()  # Если ошибка, она будет поднята
     return response.text
 
-
-cities = ['svo', 'cherepovets', 'london']
-
 if __name__ == '__main__':
+    cities = ['svo', 'cherepovets', 'london']
     for city in cities:
-        print(get_weather(city))
+        try:
+            weather = get_weather(city)
+            print(weather)
+        except requests.exceptions.HTTPError as err:
+            print(f"Ошибка при запросе погоды для {city}: {err}")
+        except requests.exceptions.RequestException as err:
+            print(f"Ошибка при выполнении запроса для {city}: {err}")
