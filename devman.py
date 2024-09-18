@@ -1,18 +1,19 @@
 import requests
 
+
 def get_weather(place, lang='ru'):
     url_template = f'https://wttr.in/{place}'
     params = {
         'lang': lang,
-        'n': '',  
-        'q': '' ,  
-        'T': '' ,
+        'n': '',
+        'q': '',
+        'T': '',
         'M': ''
     }
-    
     response = requests.get(url_template, params=params)
     response.raise_for_status()  # Если ошибка, она будет поднята
     return response.text
+
 
 if __name__ == '__main__':
     cities = ['svo', 'cherepovets', 'london']
